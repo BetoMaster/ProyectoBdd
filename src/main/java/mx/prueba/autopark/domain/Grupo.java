@@ -26,4 +26,11 @@ public class Grupo {
             joinColumns = @JoinColumn(name = "id_grupo"),
             inverseJoinColumns = @JoinColumn(name = "id_alumno"))
     private Set<Alumno> alumnos = new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "grupo_pertenece_unidadaprendizaje",
+            joinColumns = @JoinColumn(name = "id_grupo"),
+            inverseJoinColumns = @JoinColumn(name = "id_unidadaprendizaje"))
+    private Set<UnidadAprendizaje> unidadesAprendizaje = new HashSet<>();
 }

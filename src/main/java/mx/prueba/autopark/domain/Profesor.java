@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -21,4 +23,11 @@ public class Profesor {
     private String apellidoProfesor;
     private String apellidoMaterno;
     private String rfcProfesor;
+
+    @ManyToMany
+    @JoinTable(
+            name = "profesor_pertenece_programaeducativo",
+            joinColumns = @JoinColumn(name = "id_profesor"),
+            inverseJoinColumns = @JoinColumn(name = "id_programaeducativo"))
+    private Set<ProgramaEducativo> programasEducativos = new HashSet<>();
 }

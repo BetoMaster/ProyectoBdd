@@ -5,6 +5,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Data
@@ -16,4 +18,7 @@ public class Campus {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idcampus;
     private String nombre;
+
+    @ManyToMany(mappedBy = "campus")
+    private Set<ProgramaEducativo> programasEducativos = new HashSet<>();
 }
