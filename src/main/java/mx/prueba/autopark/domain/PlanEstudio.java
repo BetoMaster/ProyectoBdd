@@ -19,6 +19,7 @@ public class PlanEstudio {
     private Integer creditosObligatorios;
     private Integer creditosOptativos;
     private Integer totalCreditos;
+
     @JoinColumn(name = "idProgramaEducativo", referencedColumnName = "idprogramaeducativo")
     @ManyToOne(optional = false)
     private ProgramaEducativo idProgramaEducativo;

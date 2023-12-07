@@ -10,6 +10,8 @@ import mx.prueba.autopark.dto.response.ResponseAPI;
 import mx.prueba.autopark.enums.TipoAutoEnum;
 import mx.prueba.autopark.service.AlumnoService;
 import mx.prueba.autopark.service.AutoService;
+import mx.prueba.autopark.service.ProfesorService;
+import mx.prueba.autopark.service.ProfesorLSCService;
 import mx.prueba.autopark.service.TipoAutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,10 @@ public class AutoResource {
     private AutoService autoService;
     @Autowired
     private AlumnoService alumnoService;
+    @Autowired
+    private ProfesorService profesorService;
+    @Autowired
+    private ProfesorLSCService profesorLSCService;
     @Autowired
     private TipoAutoService tipoAutoService;
 
@@ -49,6 +55,29 @@ public class AutoResource {
     })
     public ResponseEntity<ResponseAPI> getAlumnosList(){
         ResponseAPI ResponseAPI = new ResponseAPI("AlumnoS_00","Llamado Correcto", alumnoService.getAlumnos());
+        return new ResponseEntity<>(ResponseAPI, HttpStatus.CREATED);
+    }
+
+    @PostMapping(value = "/GET/profesores", produces = "application/json")
+    @ApiOperation(value = "Servicio que regresa una lista de todos los profesores")
+    @ApiResponses(value= {
+            @ApiResponse(code = 201, message = "Respuesta exitosa"),
+            @ApiResponse(code = 401, message = "Sin autorización para usar el servicio"),
+            @ApiResponse(code = 500, message = "Error inesperado")
+    })
+    public ResponseEntity<ResponseAPI> getProfesoresList(){
+        ResponseAPI ResponseAPI = new ResponseAPI("ProfeS_00","Llamado Correcto", profesorService.getProfesores());
+        return new ResponseEntity<>(ResponseAPI, HttpStatus.CREATED);
+    }
+    @PostMapping(value = "/GET/profesoresLSC", produces = "application/json")
+    @ApiOperation(value = "Servicio que regresa una lista de todos los profesores de LSC")
+    @ApiResponses(value= {
+            @ApiResponse(code = 201, message = "Respuesta exitosa"),
+            @ApiResponse(code = 401, message = "Sin autorización para usar el servicio"),
+            @ApiResponse(code = 500, message = "Error inesperado")
+    })
+    public ResponseEntity<ResponseAPI> getProfesoresLSCList(){
+        ResponseAPI ResponseAPI = new ResponseAPI("ProfeSLSC_00","Llamado Correcto", profesorLSCService.getProfesorLSC());
         return new ResponseEntity<>(ResponseAPI, HttpStatus.CREATED);
     }
 

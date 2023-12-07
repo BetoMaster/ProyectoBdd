@@ -23,12 +23,11 @@ public class ProgramaEducativo {
     @ManyToMany(mappedBy = "programasEducativos")
     private Set<Profesor> profesores = new HashSet<>();
 
+
     @ManyToMany
     @JoinTable(
             name = "pe_pertenece_campus",
             joinColumns = @JoinColumn(name = "id_pe"),
             inverseJoinColumns = @JoinColumn(name = "id_campus"))
     private Set<Campus> campus = new HashSet<>();
-
-
 }

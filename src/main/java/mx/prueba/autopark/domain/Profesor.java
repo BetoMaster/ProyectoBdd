@@ -30,4 +30,5 @@ public class Profesor {
             joinColumns = @JoinColumn(name = "id_profesor"),
             inverseJoinColumns = @JoinColumn(name = "id_programaeducativo"))
     private Set<ProgramaEducativo> programasEducativos = new HashSet<>();
+
 }
