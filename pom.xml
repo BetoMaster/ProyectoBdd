@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>mx.prueba</groupId>
-    <artifactId>auto-park-management</artifactId>
+    <artifactId>ProyectoBDD</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
     <name>auto-park-management</name>
