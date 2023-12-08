@@ -25,4 +25,8 @@ public class Alumno {
 
     @ManyToMany(mappedBy = "alumnos")
     private Set<Grupo> grupos = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "id_programa_educativo")
+    private ProgramaEducativo programaEducativo;
 }

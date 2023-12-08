@@ -23,6 +23,8 @@ public class ProgramaEducativo {
     @ManyToMany(mappedBy = "programasEducativos")
     private Set<Profesor> profesores = new HashSet<>();
 
+    @OneToMany(mappedBy = "programaEducativo")
+    private Set<Alumno> alumnos = new HashSet<>();
 
     @ManyToMany
     @JoinTable(
